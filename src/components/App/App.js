@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import Header from '../Header/Header'
+import Header from '../Header/Header';
+import Paragraph from '../Paragraph/Paragraph';
+import List from '../List/List';
 
 class App extends Component { 
   
@@ -88,25 +90,13 @@ class App extends Component {
     <>
      
       <Header />
-      
-      <form onSubmit={this.handleSubmit}>
-        
-        {/* this.state: {JSON.stringify(this.state)}
-      </div>
-      <div>
-        this.state.starList: {JSON.stringify(this.state.starList)} */}
-
+      <Paragraph newStar={this.state.newStar}/>
+        <form onSubmit={this.handleSubmit}>
         Enter Star Name<input value={this.state.newStar.name} onChange={this.handleChangeFor('name')}/>
         Enter Star Diameter<input value={this.state.newStar.diameter} onChange={this.handleChangeFor('diameter')}/>
         <input type='submit' value='submit star'/>
-        <p>Our new star is {this.state.newStar.name} with a diameter of {this.state.newStar.diameter}</p>
-        
-      </form>
-      <ul>
-      
-        {this.state.starList.map(star => <li key={star.name}>The star {star.name} has a diameter of {star.diameter}</li>)}
-        {/*{starListItemArray}*/}
-      </ul>
+        </form>
+      <List starList={this.state.starList} />
     </>
     );
   }
