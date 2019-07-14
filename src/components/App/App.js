@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from '../Header/Header';
 import Paragraph from '../Paragraph/Paragraph';
 import List from '../List/List';
+import Form from '../Form/Form';
 
 class App extends Component { 
   
@@ -90,12 +91,10 @@ class App extends Component {
     <>
      
       <Header />
-      <Paragraph newStar={this.state.newStar}/>
-        <form onSubmit={this.handleSubmit}>
-        Enter Star Name<input value={this.state.newStar.name} onChange={this.handleChangeFor('name')}/>
-        Enter Star Diameter<input value={this.state.newStar.diameter} onChange={this.handleChangeFor('diameter')}/>
-        <input type='submit' value='submit star'/>
-        </form>
+      <Paragraph newStar={this.state.newStar} />
+      <Form newStar={this.state.newStar} 
+        handleChangeFor={this.handleChangeFor}
+        handleSubmit={this.handleSubmit}/>
       <List starList={this.state.starList} />
     </>
     );
